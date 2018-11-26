@@ -1,7 +1,9 @@
 ---
 layout: docs
-title: Private Data Donor Architecture
+title: Architecture
 ---
+
+# Platform architecture
 
 The Private Data Donor platform is made of three components:
 
@@ -15,7 +17,7 @@ On the official Private Data Donor instance, the components are hosted are the f
   * The Chrome extension: [https://chrome.google.com/webstore/detail/private-data-donor/ipeekohlgfhagcopnndkgoommcihmdmk](https://chrome.google.com/webstore/detail/private-data-donor/ipeekohlgfhagcopnndkgoommcihmdmk)
   * The dashboard: [https://app.ppd.cs.ucl.ac.uk](https://app.ppd.cs.ucl.ac.uk)
  
-## API dashboard
+## API server
 
 This is the central component, whose goal is to provide read and write access to data managed by the platform. 
 The state is persisted into a storage, such as a MySQL database.
