@@ -1,0 +1,60 @@
+#!/bin/bash
+# PDD is a platform for privacy-preserving Web searches collection.
+# Copyright (C) 2016-2018 Vincent Primault <v.primault@ucl.ac.uk>
+#
+# PDD is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# PDD is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with PDD.  If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+function print_help_and_exit {
+cat <<EOF
+Usage: $0 [-help] [-publish]
+  -help      Print this help message and exit
+  -publish   Publish (default: false, which does not publish anything)
+EOF
+exit 0
+}
+
+publish=0
+for opt in "$@"
+do
+  case "$opt" in
+    -publish)
+      publish=1
+      ;;
+    -help)
+      print_help_and_exit
+      ;;
+    *)
+      echo "Unknown option $opt"
+      print_help_and_exit
+      ;;
+  esac
+done
+
+# Build and package the website.
+rm -rf dist
+bundle install
+bundle exec jekyll build -d dist/website
+pushd dist > /dev/null
+tar czf website.tar.gz website
+popd > /dev/null
+
+if [[ ${publish} == 1 ]]; then
+  # Assume there is a "pdd" server joinable by SSH without typing a password.
+  echo "Publishing website..."
+  ls dist
+  scp dist/website.tar.gz pdd:~
+  ssh pdd "rm -rf website.new && mkdir website.new && tar xzf website.tar.gz -C website.new --strip-components=1 && rm -rf website.old && mv website website.old && mv website.new website && rm website.tar.gz"
+fi

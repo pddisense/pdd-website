@@ -17,20 +17,26 @@ Then install Jekyll and its dependencies (this has to be done only once, or when
 bundle install
 ```
 
-Finally, build the website:
+Finally, build and serve the website locally.
 ```bash
-bundle exec jekyll build
-```
-
-This will create a `_site` directory which contains the website, as a set of static assets.
-
-Alternatively, you can also serve the website locally:
-```bash
+bundle install #
 bundle exec jekyll serve
 ```
 
 You can then browse to [http://127.0.0.1:4000](http://127.0.0.1:4000) to visualise the website locally.
 Although this should not be used in production, this is very handy when developing the website, as it is automatically rebuilt whenever a file changes.
+
+## Release
+There is a release script, which is a small helper to create a packaged website.
+
+```bash
+./bin/release
+```
+
+This will create a `dist/website.tar.gz` package containing only a set of static assets.
+This will then need to be uploaded to the target Web server.
+Alternatively, you can use the `-publish` flag on the release script to automatically deploy it to the official PDD server.
+It assumes that there is a "pdd" server configured to be accessible via SSH, and that the website is deployed in the "~/website" directory.
 
 ## About
 Private Data Donor is a research project whose goal is to gather statistics about Web search queries in a privacy-preserving way.
