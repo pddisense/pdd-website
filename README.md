@@ -19,7 +19,7 @@ bundle install
 
 Finally, build and serve the website locally.
 ```bash
-bundle install #
+bundle install
 bundle exec jekyll serve
 ```
 
