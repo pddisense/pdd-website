@@ -23,7 +23,7 @@ baseurl: ""
 url: "https://ppd.cs.ucl.ac.uk"
 
 markdown: kramdown
-gems:
+plugins:
 - jekyll-sitemap
 exclude:
 - Gemfile

@@ -1,8 +1,7 @@
 ---
+layout: docs
 title: Monitoring
 ---
-
-# Monitoring PDD
 
 Monitoring the API server is critical to ensure that it is continuously running and behaving as expected.
 Note that the dashboard can be monitored using the same techniques that the ones presented on this page, although it is usually considered less critical (as the dashboard is not responsible for collecting the data).
@@ -10,9 +9,9 @@ Note that the dashboard can be monitored using the same techniques that the ones
 ## Logs
 
 All the log messages are written to the standard output.
-When running the API server with Docker, this allows to easily inspect logs later by using the `docker logs` command. 
+When running the API server with Docker, this allows to easily inspect logs later by using the `docker logs` command.
 By default the logging verbosity is INFO, but you can change it with the `-log_level` flag.
-For example, to include debug messages, you can pass the `-log_level=DEBUG` flag when starting the server. 
+For example, to include debug messages, you can pass the `-log_level=DEBUG` flag when starting the server.
 
 ## Metrics
 

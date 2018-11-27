@@ -8,49 +8,44 @@ layout: base
   <div class="row">
     <div class="col-md-3 docs-sidebar">
 
-      {% if page.url contains "/docs/users/" %}
-      <h5>User guide</h5>
-      <ul class="docs-menu">
-        <li {% if page.url == "/docs/users/" %}class="active"{% endif %}>
-        <a href="/docs/users/">Getting started</a>
-        </li>
-      </ul>
+      {% if page.url contains "/docs/deploy/" %}
+        <h5>Administrator guide</h5>
+        <ul class="docs-menu">
+          <li {% if page.url == "/docs/deploy/install.html" %}class="active"{% endif %}>
+            <a href="/docs/deploy/install.html">Installing</a>
+          </li>
+          <li {% if page.url == "/docs/deploy/monitoring.html" %}class="active"{% endif %}>
+            <a href="/docs/deploy/monitoring.html">Monitoring</a>
+          </li>
+        </ul>
       {% else %}
-      <h5><a href="/docs/users/">User guide</a></h5>
+        <h5><a href="/docs/deploy/install.html">Administrator guide</a></h5>
       {% endif %}
 
-      {% if page.url contains "/docs/admins/" %}
-      <h5>Administrator guide</h5>
-      <ul class="docs-menu">
-        <li {% if page.url == "/docs/admins/" %}class="active"{% endif %}>
-        <a href="/docs/admins/">Getting started</a>
-        </li>
-        <li {% if page.url == "/docs/admins/architecture.html" %}class="active"{% endif %}>
-        <a href="/docs/admins/architecture.html">Architecture</a>
-        </li>
-        <li {% if page.url == "/docs/admins/install.html" %}class="active"{% endif %}>
-        <a href="/docs/admins/install.html">Installation</a>
-        </li>
-        <li {% if page.url == "/docs/admins/update.html" %}class="active"{% endif %}>
-        <a href="/docs/admins/update.html">Updating</a>
-        </li>
-        <li {% if page.url == "/docs/admins/monitoring.html" %}class="active"{% endif %}>
-        <a href="/docs/admins/monitoring.html">Monitoring</a>
-        </li>
-      </ul>
+      {% if page.url contains "/docs/contribute/" %}
+        <h5>Developer guide</h5>
+        <ul class="docs-menu">
+          <li {% if page.url == "/docs/contribute/architecture.html" %}class="active"{% endif %}>
+            <a href="/docs/contribute/architecture.html">Architecture</a>
+          </li>
+          <li {% if page.url == "/docs/contribute/codebase.html" %}class="active"{% endif %}>
+            <a href="/docs/contribute/codebase.html">Codebase tour</a>
+          </li>
+          <li {% if page.url == "/docs/contribute/protocol.html" %}class="active"{% endif %}>
+            <a href="/docs/contribute/protocol.html">Protocol specification</a>
+          </li>
+          <li {% if page.url == "/docs/contribute/server.html" %}class="active"{% endif %}>
+            <a href="/docs/contribute/server.html">Server development</a>
+          </li>
+          <li {% if page.url == "/docs/contribute/client.html" %}class="active"{% endif %}>
+            <a href="/docs/contribute/client.html">Client development</a>
+          </li>
+          <li {% if page.url == "/docs/contribute/dashboard.html" %}class="active"{% endif %}>
+            <a href="/docs/contribute/dashboard.html">Dashboard development</a>
+          </li>
+        </ul>
       {% else %}
-      <h5><a href="/docs/admins/">Administrator guide</a></h5>
-      {% endif %}
-
-      {% if page.url contains "/docs/developers/" %}
-      <h5>Developer guide</h5>
-      <ul class="docs-menu">
-        <li {% if page.url == "/docs/developers/" %}class="active"{% endif %}>
-        <a href="/docs/developers/">Getting started</a>
-        </li>
-      </ul>
-      {% else %}
-      <h5><a href="/docs/developers/">Developer guide</a></h5>
+        <h5><a href="/docs/contribute/architecture.html">Developer guide</a></h5>
       {% endif %}
     </div>
 

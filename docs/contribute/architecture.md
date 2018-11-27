@@ -1,9 +1,7 @@
 ---
 layout: docs
-title: Architecture
+title: Platform architecture
 ---
-
-# Platform architecture
 
 The Private Data Donor platform is made of three components:
 
@@ -11,15 +9,17 @@ The Private Data Donor platform is made of three components:
   * The Chrome extension, installed by the volunteers;
   * The dashboard, used by the analysts to parametrise the platform and access the results.
 
-On the official Private Data Donor instance, the components are hosted are the following addresses:
+On the official Private Data Donor instance, the components are available at the following addresses:
 
   * The API server: [https://api.ppd.cs.ucl.ac.uk](https://api.ppd.cs.ucl.ac.uk)
   * The Chrome extension: [https://chrome.google.com/webstore/detail/private-data-donor/ipeekohlgfhagcopnndkgoommcihmdmk](https://chrome.google.com/webstore/detail/private-data-donor/ipeekohlgfhagcopnndkgoommcihmdmk)
   * The dashboard: [https://app.ppd.cs.ucl.ac.uk](https://app.ppd.cs.ucl.ac.uk)
- 
+
+![Architecture overview](/assets/images/architecture.png)
+
 ## API server
 
-This is the central component, whose goal is to provide read and write access to data managed by the platform. 
+This is the central component, whose goal is to provide read and write access to data managed by the platform.
 The state is persisted into a storage, such as a MySQL database.
 The API server exposes a REST API, which is used both by the extension and the dashboard.
 
@@ -32,7 +32,7 @@ The part of the REST API used by the dashboard is referred as the "private" API,
 The authentication is provided by the only mean of a [bearer token](https://swagger.io/docs/specification/authentication/bearer-authentication/).
 This API offers a large array of capabilities, allowing to dynamically alter the behaviour of the platform by launching new campaigns, viewing clients' activity statistics or exporting results.
 
-In addition to the REST API, the API server also comes with several built-in cron jobs, who are typically executed during the night. 
+In addition to the REST API, the API server also comes with several built-in cron jobs, who are typically executed during the night.
 There are in charge of handling things such as aggregating results.
 Please note that we only support a single instance of the API server, as there is no mechanism to elect a leader and ensure that cron jobs run only once.
 
