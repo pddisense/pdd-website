@@ -9,6 +9,9 @@ If you want to get a deeper understanding of the architecture, you can read [the
 
 This page explains how to deploy the API server and the Web dashboard using Docker.
 
+* TOC
+{:toc}
+
 ## Installing Docker
 
 The PDD platform is packaged as a Docker image to ease its installation on heterogeneous platforms.

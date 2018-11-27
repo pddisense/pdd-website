@@ -6,14 +6,17 @@ title: Monitoring
 Monitoring the API server is critical to ensure that it is continuously running and behaving as expected.
 Note that the dashboard can be monitored using the same techniques that the ones presented on this page, although it is usually considered less critical (as the dashboard is not responsible for collecting the data).
 
-## Logs
+* TOC
+{:toc}
+
+## Monitoring logs
 
 All the log messages are written to the standard output.
 When running the API server with Docker, this allows to easily inspect logs later by using the `docker logs` command.
 By default the logging verbosity is INFO, but you can change it with the `-log_level` flag.
 For example, to include debug messages, you can pass the `-log_level=DEBUG` flag when starting the server.
 
-## Metrics
+## Monitoring metrics
 
 The API server exposes a lot of metrics allowing to inspect its status.
 They can be exported as several formats.
@@ -33,7 +36,7 @@ Note that Finagle metrics have flat names, e.g., "status/200", which creates a h
 The Datadog integration does its best to translate the most common metric names into a format suitable for Datadog.
 The `ENVIRONMENT` environment variable is always included as a Datadog tag specifying the current environment in which the server is running, e.g., "devel", "stating" or "production".
 
-## Errors
+## Monitoring errors
 
 It may happen that a server generates exceptions.
 Although it won't usually crash it, it still indicates a bad behaviour that should be corrected.
