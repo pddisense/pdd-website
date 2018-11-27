@@ -15,6 +15,20 @@ Chrome extensions are written in Javascript, and packaged as ZIP files before be
 We provide here an overview of the inner workings of the PDD extension, more information about developing Chrome extensions can be found [in the official documentation](https://developer.chrome.com/extensions/devguide).
 
 The Chrome extension is made of two main parts: a background script, which implements [the protocol](protocol.html), and an options page, providing the user with some controls over the data collection process.
+It is written in Javascript ES6, transpiled with Babel.
+The options page uses React for the user interface.
+To build the extension, you will need [Node ≥10.9.0](https://nodejs.org) and [Yarn](https://yarnpkg.com).
+
+```bash
+yarn build
+```
+
+The tests are equally launched via Yarn:
+```bash
+yarn test
+```
+
+Please allow some time for the tests to complete, as the cryptographic operations are quite extensive.
 
 ## Public API specification
 
