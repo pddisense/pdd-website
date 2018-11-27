@@ -60,12 +60,13 @@ nav.navbar {
 .banner p {
   font-size: 1.3em;
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   line-height: 1.8em;
 }
 
 .banner .btn {
   margin-right: 25px;
+  margin-top: 15px;
 }
 
 .btn.btn-lg {
@@ -80,25 +81,24 @@ nav.navbar {
   padding: 30px 0 30px 0;
 }
 
+.partners p {
+  margin-bottom: 15px;
+}
+
 .partners img {
   max-height: 60px;
 }
 
 .feature-image {
   background-size: cover;
-  height: 320px;
 }
 
 .feature-text {
-  padding: 40px;
+  padding: 70px;
 }
 
 .feature-text h4 {
   font-variant: small-caps;
-}
-
-.feature-centre .feature-text h4, .feature-centre .feature-text p {
-  text-align: center;
 }
 
 .feature-text p {
@@ -107,7 +107,7 @@ nav.navbar {
 }
 
 .feature-left .feature-text p, .feature-right .feature-text p {
-  width: 600px;
+  max-width: 600px;
 }
 
 .feature-right h4, .feature-right p {
@@ -153,7 +153,7 @@ nav.navbar {
 }
 
 .step-body {
-  width: 700px;
+  max-width: 700px;
   border: 1px solid rgba(0,0,0,.2);
   border-radius: 3px;
   padding: 15px;
@@ -190,9 +190,6 @@ nav.navbar {
 }
 
 .callout {
-  border-top: 1px solid rgba(0,0,0,.2);
-  border-bottom: 1px solid rgba(0,0,0,.2);
-  background-color: rgba(0, 0, 0, 0.03);
   padding: 30px 0 30px 0;
   text-align: center;
 }
@@ -286,6 +283,18 @@ nav.navbar {
 
 .highlight pre {
   margin: 0;
+}
+
+.table-api tr td:nth-child(1) {
+  width: 320px;
+}
+
+.docs-sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 15px;
+  line-height: 1.8em;
 }
 
 /**
