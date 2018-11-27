@@ -26,6 +26,8 @@ markdown: kramdown
 plugins:
 - jekyll-sitemap
 exclude:
+- .gitignore
 - Gemfile
 - Gemfile.lock
-- BUILD
+- LICENSE
+- README.md

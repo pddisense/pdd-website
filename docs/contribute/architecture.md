@@ -5,15 +5,9 @@ title: Platform architecture
 
 The Private Data Donor platform is made of three components:
 
-  * The API server, offering a REST API;
-  * The Chrome extension, installed by the volunteers;
-  * The dashboard, used by the analysts to parametrise the platform and access the results.
-
-On the official Private Data Donor instance, the components are available at the following addresses:
-
-  * The API server: [https://api.ppd.cs.ucl.ac.uk](https://api.ppd.cs.ucl.ac.uk)
-  * The Chrome extension: [https://chrome.google.com/webstore/detail/private-data-donor/ipeekohlgfhagcopnndkgoommcihmdmk](https://chrome.google.com/webstore/detail/private-data-donor/ipeekohlgfhagcopnndkgoommcihmdmk)
-  * The dashboard: [https://app.ppd.cs.ucl.ac.uk](https://app.ppd.cs.ucl.ac.uk)
+  * An API server, offering a REST API;
+  * A Chrome extension, installed by the volunteers;
+  * A dashboard, used by the analysts to configure the platform and access the results.
 
 ![Architecture overview](/assets/images/architecture.png)
 
@@ -36,6 +30,8 @@ In addition to the REST API, the API server also comes with several built-in cro
 There are in charge of handling things such as aggregating results.
 Please note that we only support a single instance of the API server, as there is no mechanism to elect a leader and ensure that cron jobs run only once.
 
+The official API server is available at [https://api.ppd.cs.ucl.ac.uk](https://api.ppd.cs.ucl.ac.uk).
+
 ## Chrome extension
 
 The Chrome extension is a lightweight component whose purpose is to monitor the Web searches made by users, and once a day send relevant data to the API server.
@@ -47,6 +43,8 @@ Sending encrypted data means that the server is only able to decrypt it once it 
 The Chrome extension runs fully in the background, without requiring the user to take any specific action.
 It comes with a FAQ, and provides statistics to the interested user.
 
+The official Chrome extension is available [on the Chrome Web Store](https://chrome.google.com/webstore/detail/private-data-donor/ipeekohlgfhagcopnndkgoommcihmdmk).
+
 ## Dashboard
 
 The dashboard is a stateless component providing a Web interface to administrators and analysts.
@@ -54,3 +52,5 @@ It allows to create collection campaigns, define the monitored queries and param
 It also provide various statistics about the platform's health and allows to export collection results.
 
 Because it is highly sensitive, it comes with a built-in password-based authentication, relying on [JSON Web Tokens](https://jwt.io).
+
+The official dashboard is available at [https://app.ppd.cs.ucl.ac.uk](https://app.ppd.cs.ucl.ac.uk).
