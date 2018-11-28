@@ -20,6 +20,7 @@ The options page uses React for the user interface.
 To build the extension, you will need [Node ≥10.9.0](https://nodejs.org) and [Yarn](https://yarnpkg.com).
 
 ```bash
+yarn install
 yarn build
 ```
 
