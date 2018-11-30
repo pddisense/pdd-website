@@ -20,6 +20,7 @@ The options page uses React for the user interface.
 To build the extension, you will need [Node ≥10.9.0](https://nodejs.org) and [Yarn](https://yarnpkg.com).
 
 ```bash
+yarn install
 yarn build
 ```
 
@@ -29,6 +30,16 @@ yarn test
 ```
 
 Please allow some time for the tests to complete, as the cryptographic operations are quite extensive.
+
+## Release
+
+There is a release script, which is a small helper to create a packaged extension, ready to be uploaded on the Chrome Web store.
+```bash
+./bin/release
+```
+
+This will create a `dist/chrome.zip` package.
+You then need to upload the latest package via the [Chrome Developer Dashboard](https://chrome.google.com/webstore/developer/dashboard).
 
 ## Public API specification
 
