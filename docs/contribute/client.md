@@ -9,14 +9,10 @@ The source code for the client is available on GitHub: [https://github.com/pddis
 * TOC
 {:toc}
 
-## Chrome extension
+## Develop the Chrome extension
 
 Chrome extensions are written in Javascript, and packaged as ZIP files before being uploaded on the Chrome Web Store.
 We provide here an overview of the inner workings of the PDD extension, more information about developing Chrome extensions can be found [in the official documentation](https://developer.chrome.com/extensions/devguide).
-
-The Chrome extension is made of two main parts: a background script, which implements [the cryptographic protocol](protocol.html), and an options page, providing the user with some controls over the data collection process.
-It is written in Javascript ES6, transpiled with Babel.
-The options page uses React for the user interface.
 To build the extension, you will need [Node ≥10.9.0](https://nodejs.org) and [Yarn](https://yarnpkg.com).
 
 ```bash
@@ -31,7 +27,18 @@ yarn test
 
 Please allow some time for the tests to complete, as the cryptographic operations are quite extensive.
 
-## Release
+The Chrome extension is made of two main parts: a background script, which implements [the cryptographic protocol](protocol.html), and an options page, providing the user with some controls over the data collection process.
+It is written in Javascript ES6, transpiled with Babel, and the options page uses React for the user interface.
+
+The Chrome extension uses the [local storage API](https://developer.chrome.com/extensions/storage) (which is different from HTML5 local storage) to store the user preferences as well as the cryptographic keys.
+The [history API](https://developer.chrome.com/extensions/history) is used to access the browser's history.
+This solution was preferred over monitoring every browsed URL on-the-fly and storing the ones corresponding to Web searches in a local storage.
+Integrating directly with the history API requires a lower-level permission.
+More importantly, it also allows to remain consistent with the user's wishes if he deletes some items from the browsing history, which we consider as an indication he may not feel comfortable with sharing that with us either.
+For now, only Google searches are supported, but it would require minimal effort to support other search engines.
+Finally, the [alarms API](https://developer.chrome.com/extensions/alarms) is used to schedule the pings.
+
+## Publish the Chrome extension
 
 There is a release script, which is a small helper to create a packaged extension, ready to be uploaded on the Chrome Web store.
 ```bash
