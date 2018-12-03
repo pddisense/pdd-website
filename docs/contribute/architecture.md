@@ -20,7 +20,7 @@ The API server exposes a REST API, which is used both by the extension and the d
 The part of the REST API used by the extension is referred as the "public" API, as it is unauthenticated.
 The only authentication comes from the client identifier which is included in those public endpoints; the client identifier is hence considered as credentials.
 [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) is enabled on the public API.
-This API is quite restricted, and provides the client registration, client ping and sketch update capabilities.
+This API is quite restricted, and provides the client registration, client ping and sketch submission capabilities.
 
 The part of the REST API used by the dashboard is referred as the "private" API, as it is authenticated.
 The authentication is provided by the only mean of a [bearer token](https://swagger.io/docs/specification/authentication/bearer-authentication/).

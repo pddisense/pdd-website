@@ -14,7 +14,7 @@ The source code for the client is available on GitHub: [https://github.com/pddis
 Chrome extensions are written in Javascript, and packaged as ZIP files before being uploaded on the Chrome Web Store.
 We provide here an overview of the inner workings of the PDD extension, more information about developing Chrome extensions can be found [in the official documentation](https://developer.chrome.com/extensions/devguide).
 
-The Chrome extension is made of two main parts: a background script, which implements [the protocol](protocol.html), and an options page, providing the user with some controls over the data collection process.
+The Chrome extension is made of two main parts: a background script, which implements [the cryptographic protocol](protocol.html), and an options page, providing the user with some controls over the data collection process.
 It is written in Javascript ES6, transpiled with Babel.
 The options page uses React for the user interface.
 To build the extension, you will need [Node ≥10.9.0](https://nodejs.org) and [Yarn](https://yarnpkg.com).
@@ -43,7 +43,7 @@ You then need to upload the latest package via the [Chrome Developer Dashboard](
 
 ## Public API specification
 
-The client is expected to interact with the API server through a set of public endpoints.
+The client is expected to interact with the API server through a set of public endpoints, which are used to implement [the cryptographic protocol](protocol.html).
 They are considered public in the sense that any client can use it, and there is no explicit authentication.
 Instead, the client's unique name should be considered as a private information (and thus not to be shared), used to identify itself with the server.
 
