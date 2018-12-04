@@ -41,3 +41,27 @@ The test suite is also automatically launched by [Travis CI](https://travis-ci.c
 When everything succeeds, Travis is also configured to automatically publish the image on Docker Hub.
 
 ## Implementation notes
+
+The API server is built on top of [Finatra](https://twitter.github.io/finatra/), which is a framework from Twitter helping with creating services.
+It provides two main REST APIs: a public one, used by the clients to implement [the cryptographic protocol](protocol.html), and a private one, used by the dashboard to configure the server and present the results to analysts.
+The private API is authenticated via a Bearer token.
+
+Various objects are manipulated by the server.
+
+  * **Campaigns** are a high-level concept materialising a list of queries of interest to be collected for research purposes.
+For example, one could create a campaign monitoring flu-related queries such as "flu", "influenza", "fever", etc., while another researcher could create another campaign monitoring politics-related queries such as "Tory", "parliament" or "prime minister".
+Of course, the PDD project is right now focused in the former.
+Interestingly, a campaign also contains some parameters such as the size of groups within which to create users, which is a parameter having an impact on the utility of the results provided by PDD.
+Multiple campaigns could be created with different group sizes, to examine the impact it has on the quality of results.
+  * **Clients** represent the browser extensions installed by the users.
+They provide minimal metadata such as the type of browser (e.g., "Chrome").
+  * **Activity logs** are used to keep track of when clients ping the server.
+This is notably used to compute optimal groups, e.g., by evicting clients that have been inactive for a long time.
+  * **Sketches** are the encrypted vectors sent by the clients.
+Sketches are first created empty, every night, and are expected to be filled by the clients when then come only the next day and ping the server.
+They are short-lived objects, as they are garbage-collected if they stay empty (or cannot be aggregated) for too long (more than the delay configured in the campaign).
+  * **Aggregations** are the decrypted vectors.
+They are created every night, as soon as all sketches of a given group have been collected, and updated as new sketches arrive and allow to decrypt more groups.
+
+The server has a pluggable storage layer, used to store all those objects.
+Right now, in-memory storage and MySQL storage are provided.
