@@ -11,15 +11,18 @@ layout: base
       {% if page.url contains "/docs/deploy/" %}
         <h5>Administrator guide</h5>
         <ul class="docs-menu">
-          <li {% if page.url == "/docs/deploy/install.html" %}class="active"{% endif %}>
-            <a href="/docs/deploy/install.html">Installing</a>
+          <li {% if page.url == "/docs/deploy/server.html" %}class="active"{% endif %}>
+            <a href="/docs/deploy/server.html">Deploy the server</a>
+          </li>
+          <li {% if page.url == "/docs/deploy/dashboard.html" %}class="active"{% endif %}>
+            <a href="/docs/deploy/dashboard.html">Deploy the dashboard</a>
           </li>
           <li {% if page.url == "/docs/deploy/monitoring.html" %}class="active"{% endif %}>
             <a href="/docs/deploy/monitoring.html">Monitoring</a>
           </li>
         </ul>
       {% else %}
-        <h5><a href="/docs/deploy/install.html">Administrator guide</a></h5>
+        <h5><a href="/docs/deploy/server.html">Administrator guide</a></h5>
       {% endif %}
 
       {% if page.url contains "/docs/contribute/" %}
