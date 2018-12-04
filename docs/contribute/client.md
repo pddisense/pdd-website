@@ -9,7 +9,7 @@ The source code for the client is available on GitHub: [https://github.com/pddis
 * TOC
 {:toc}
 
-## Develop the Chrome extension
+## Build the extension
 
 Chrome extensions are written in Javascript, and packaged as ZIP files before being uploaded on the Chrome Web Store.
 We provide here an overview of the inner workings of the PDD extension, more information about developing Chrome extensions can be found [in the official documentation](https://developer.chrome.com/extensions/devguide).
@@ -20,15 +20,19 @@ yarn install
 yarn build
 ```
 
-The tests are equally launched via Yarn:
+The Chrome extension is made of two main parts: a background script, which implements [the cryptographic protocol](protocol.html), and an options page, providing the user with some controls over the data collection process.
+It is written in Javascript ES6, transpiled with Babel, and the options page uses React for the user interface.
+
+## Running the tests
+
+The tests are launched with Yarn:
 ```bash
 yarn test
 ```
 
 Please allow some time for the tests to complete, as the cryptographic operations are quite extensive.
 
-The Chrome extension is made of two main parts: a background script, which implements [the cryptographic protocol](protocol.html), and an options page, providing the user with some controls over the data collection process.
-It is written in Javascript ES6, transpiled with Babel, and the options page uses React for the user interface.
+## Implementation notes
 
 The Chrome extension uses the [local storage API](https://developer.chrome.com/extensions/storage) (which is different from HTML5 local storage) to store the user preferences as well as the cryptographic keys.
 The [history API](https://developer.chrome.com/extensions/history) is used to access the browser's history.

@@ -115,6 +115,12 @@ This can be done by defining the `-master_password` flag to some secret value.
 This password will be then used by the users to login interactively to the dashboard.
 This value is by design different from the access token; the access token should not change very often, while the master password may possibly change as often as you need it to be.
 
+Please note the essential difference between the access token and the master password.
+The access token is intended as a means for internal authentication between services, while the master password is intended to be provided by users using the UI.
+The goal to separate those (and not ask the users to provide the access token directly) is to allow to change the master password without having to do anything on the API server side.
+Indeed, the master password is strictly internal to the dashboard, and can be changed easily by restarting only the dashboard.
+You can even disable the password, e.g., if the dashboard is already deployed behind an authentication proxy.
+
 ### Example
 As a reference, the following command is used to start the production dashboard:
 
@@ -127,6 +133,7 @@ docker run \
   --env ENVIRONMENT=production \
   pddisense/pdd-dashboard \
     -api.access_token=<access token> \
+    -api.server=localhost:8000 \
     -master_password=<master password> \
     -admin.port=:9001 \
     -http.port=:8001
