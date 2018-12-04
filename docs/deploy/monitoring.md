@@ -4,7 +4,6 @@ title: Monitoring
 ---
 
 Monitoring the API server is critical to ensure that it is continuously running and behaving as expected.
-Note that the dashboard can be monitored using the same techniques that the ones presented on this page, although it is usually considered less critical (as the dashboard is not responsible for collecting the data).
 
 * TOC
 {:toc}
@@ -15,6 +14,8 @@ All the log messages are written to the standard output.
 When running the API server with Docker, this allows to easily inspect logs later by using the `docker logs` command.
 By default the logging verbosity is INFO, but you can change it with the `-log_level` flag.
 For example, to include debug messages, you can pass the `-log_level=DEBUG` flag when starting the server.
+
+The same flag is also available on the dashboard.
 
 ## Monitoring metrics
 
@@ -36,6 +37,8 @@ Note that Finagle metrics have flat names, e.g., "status/200", which creates a h
 The Datadog integration does its best to translate the most common metric names into a format suitable for Datadog.
 The `ENVIRONMENT` environment variable is always included as a Datadog tag specifying the current environment in which the server is running, e.g., "devel", "stating" or "production".
 
+This option is *not* available on the dashboard.
+
 ## Monitoring errors
 
 It may happen that a server generates exceptions.
@@ -43,3 +46,5 @@ Although it won't usually crash it, it still indicates a bad behaviour that shou
 Exceptions can be automatically forwarded to [Sentry](https://sentry.io), if the `SENTRY_DSN` environment variable is configured.
 [Sentry documentation](https://docs.sentry.io/clients/java/config/) contains more information about how to configure Sentry.
 The `ENVIRONMENT` environment variable is always included as a Sentry tag specifying the current environment in which the server is running, e.g., "devel", "stating" or "production".
+
+This option is *not* available on the dashboard.
