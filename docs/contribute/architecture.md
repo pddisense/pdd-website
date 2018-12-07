@@ -30,7 +30,7 @@ In addition to the REST API, the API server also comes with several built-in cro
 There are in charge of handling things such as aggregating results.
 Please note that we only support a single instance of the API server, as there is no mechanism to elect a leader and ensure that cron jobs run only once.
 
-The official API server is available at [https://api.ppd.cs.ucl.ac.uk](https://api.ppd.cs.ucl.ac.uk).
+The official API server is available at [https://api.pdd.cs.ucl.ac.uk](https://api.pdd.cs.ucl.ac.uk).
 
 ## Chrome extension
 
@@ -53,4 +53,4 @@ It also provide various statistics about the platform's health and allows to exp
 
 Because it is highly sensitive, it comes with a built-in password-based authentication, relying on [JSON Web Tokens](https://jwt.io).
 
-The official dashboard is available at [https://app.ppd.cs.ucl.ac.uk](https://app.ppd.cs.ucl.ac.uk).
+The official dashboard is available at [https://app.pdd.cs.ucl.ac.uk](https://app.pdd.cs.ucl.ac.uk).
