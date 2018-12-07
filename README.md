@@ -36,7 +36,7 @@ There is a release script, which is a small helper to create a packaged website.
 This will create a `dist/website.tar.gz` package containing only a set of static assets.
 This will then need to be uploaded to the target Web server.
 Alternatively, you can use the `-publish` flag on the release script to automatically deploy it to the official PDD server.
-It assumes that there is a "pdd" server configured to be accessible via SSH, and that the website is deployed in the "~/website" directory.
+It assumes that pdd@pdd.cs.ucl.ac.uk is accessible via SSH, and that the website is deployed in the "~/website" directory.
 
 ## About
 Private Data Donor is a research project whose goal is to gather statistics about Web search queries in a privacy-preserving way.

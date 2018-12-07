@@ -55,6 +55,6 @@ if [[ ${publish} == 1 ]]; then
   # Assume there is a "pdd" server joinable by SSH without typing a password.
   echo "Publishing website..."
   ls dist
-  scp dist/website.tar.gz pdd:~
-  ssh pdd "rm -rf website.new && mkdir website.new && tar xzf website.tar.gz -C website.new --strip-components=1 && rm -rf website.old && mv website website.old && mv website.new website && rm website.tar.gz"
+  scp dist/website.tar.gz pdd@pdd.cs.ucl.ac.uk:~
+  ssh pdd@pdd.cs.ucl.ac.uk "rm -rf website.new && mkdir website.new && tar xzf website.tar.gz -C website.new --strip-components=1 && rm -rf website.old && mv website website.old && mv website.new website && rm website.tar.gz"
 fi
