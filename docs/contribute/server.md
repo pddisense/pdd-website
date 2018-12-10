@@ -45,8 +45,13 @@ When everything succeeds, Travis is also configured to automatically publish the
 The API server is built on top of [Finatra](https://twitter.github.io/finatra/), which is a framework from Twitter helping with creating services.
 It provides two main REST APIs: a public one, used by the clients to implement [the cryptographic protocol](protocol.html), and a private one, used by the dashboard to configure the server and present the results to analysts.
 The private API is authenticated via a Bearer token.
+The API controllers are implemented in the [`ucl.pdd.server` package](https://github.com/pddisense/pdd-server/tree/master/src/main/scala/ucl/pdd/server).
+
+The API is complemented by a set of background jobs, handling for example the creation of sketches and their aggregation.
+The background jobs are implemented in the [`ucl.pdd.service` package](https://github.com/pddisense/pdd-server/tree/master/src/main/scala/ucl/pdd/service).
 
 Various objects are manipulated by the server.
+All those domain objects are implemented the [`ucl.pdd.domain` package](https://github.com/pddisense/pdd-server/tree/master/src/main/scala/ucl/pdd/domain).
 
   * **Campaigns** are a high-level concept materialising a list of queries of interest to be collected for research purposes.
 For example, one could create a campaign monitoring flu-related queries such as "flu", "influenza", "fever", etc., while another researcher could create another campaign monitoring politics-related queries such as "Tory", "parliament" or "prime minister".
@@ -65,3 +70,4 @@ They are created every night, as soon as all sketches of a given group have been
 
 The server has a pluggable storage layer, used to store all those objects.
 Right now, in-memory storage and MySQL storage are provided.
+The storage layer is implemented in the [`ucl.pdd.storage` package](https://github.com/pddisense/pdd-server/tree/master/src/main/scala/ucl/pdd/storage).
