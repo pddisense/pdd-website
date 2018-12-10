@@ -50,6 +50,7 @@ For now, the only implementation is a MySQL storage, which is enabled by specify
 Then, the `-mysql_user`, `-mysql_password` and `-mysql_database` flags can be used to override, respectively,
 the MySQL username, password and database name.
 By default, it connects to a database named `pdd` as the `root` user and no password.
+We officially support MySQL 5.7 (MySQL 8 is not supported).
 
 ## Configuring security
 The private endpoints are secured by the means of an access token, specified with the `-api.access_token` flag.
